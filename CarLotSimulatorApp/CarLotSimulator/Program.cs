@@ -6,8 +6,41 @@ namespace CarLotSimulator
     {
         static void Main(string[] args)
         {
-            //TODO
+            var lot = new CarLot();
+     
+            var myCar = new Car();
+            myCar.Year = 2017;
+            myCar.Make = "Pathfinder";
+            myCar.Model = "Nissan";
+            myCar.EngineNoise = "Vroom";
+            myCar.HonkNoise = "Beep";
+            myCar.IsDriveable = true;
 
+            lot.Cars.Add(myCar);
+
+            var mySecondCar = new Car()
+            {
+                Year = 2013,
+                Make = "Hyundai",
+                Model = "Genesis",
+                EngineNoise = "Hummmmm",
+                HonkNoise = "Hoonnkk",
+                IsDriveable = true
+
+            };
+            lot.Cars.Add(mySecondCar);
+
+            var myThirdCar = new Car(2018, "Nissan", "Sentra", "VroomVroom", "BeepBeep", true);
+
+            myCar.MakeEngineNoise(myCar.EngineNoise);
+            mySecondCar.MakeEngineNoise(mySecondCar.EngineNoise);
+            myThirdCar.MakeEngineNoise(myThirdCar.EngineNoise);
+
+            lot.Cars.Add(myThirdCar);
+            foreach(var car in lot.Cars)
+            {
+                Console.WriteLine($"Year: {car.Year} Make: {car.Make} Model: {car.Model}");
+            }
             //Create a seperate class file called Car
             //Car shall have the following properties: Year, Make, Model, EngineNoise, HonkNoise, IsDriveable
             //Car shall have the following methods: MakeEngineNoise(), MakeHonkNoise()
